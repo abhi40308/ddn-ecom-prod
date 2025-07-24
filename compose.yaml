@@ -33,7 +33,7 @@ services:
   promptql-playground:
     environment:
       CONFIG_PATH: /app/promptql_config.json
-      CORS_ORIGINS: ${CORS_ORIGINS:-https://console.hasura.io,https://promptql.console.hasura.io}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://console.hasura.io,https://promptql.console.hasura.io,http://localhost:3000}
       DDN_URL: ${HASURA_DDN_URL:-http://engine:3000/v1/sql}
       OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://local.hasura.dev:4317}
       PROMPTQL_SECRET_KEY: ${PROMPTQL_SECRET_KEY}

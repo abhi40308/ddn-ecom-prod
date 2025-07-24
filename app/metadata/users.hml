@@ -47,6 +47,18 @@ definition:
           - name
           - password
           - updated_at
+    - role: user
+      output:
+        allowedFields:
+          - created_at
+          - email
+          - favorite_artist
+          - id
+          - is_email_verified
+          - last_seen
+          - name
+          - password
+          - updated_at
 
 ---
 kind: AggregateExpression
@@ -150,6 +162,15 @@ definition:
     - role: admin
       select:
         filter: null
+        allowSubscriptions: true
+    - role: user
+      select:
+        filter:
+          fieldComparison:
+            field: email
+            operator: _eq
+            value:
+              sessionVariable: x-hasura-user-email
         allowSubscriptions: true
 
 ---
@@ -301,4 +322,3 @@ definition:
     enable: true
   graphql:
     typeName: users_bool_exp
-

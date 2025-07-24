@@ -1,0 +1,22 @@
+kind: AuthConfig
+version: v4
+definition:
+  mode:
+    jwt:
+      claimsConfig:
+        locations:
+          x-hasura-default-role:
+            literal: user
+          x-hasura-user-id:
+            literal: 8dea1160-65b7-11ed-b907-e3c5123cb650
+          x-hasura-allowed-roles:
+            literal:
+              - user
+              - admin
+          x-hasura-user-email:
+            path:
+              path: /https:~1~1promptql.hasura.io/user-info/email
+      tokenLocation:
+        type: BearerAuthorization
+      key:
+        jwkFromUrl: https://auth.pro.hasura.io/ddn/.well-known/jwks
